@@ -1,0 +1,17 @@
+# Compiled schemas
+schemas/gschemas.compiled
+
+# Compiled translations
+locale/*/LC_MESSAGES/*.mo
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+

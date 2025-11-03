@@ -1,0 +1,123 @@
+/* System Monitor Extension Styles */
+
+.system-monitor-indicator {
+    spacing: 8px;
+    padding: 0 6px;
+}
+
+.system-monitor-container {
+    spacing: 8px;
+    padding: 2px 4px;
+}
+
+.system-monitor-item {
+    spacing: 4px;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.system-monitor-label {
+    font-size: 11px;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.system-monitor-value {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* Format: Text */
+.monitor-format-text .system-monitor-item {
+    spacing: 2px;
+}
+
+/* Format: Icons */
+.monitor-format-icons .system-monitor-icon {
+    icon-size: 16px;
+    padding: 2px;
+}
+
+/* Format: Progress Bars */
+.monitor-format-progress .system-monitor-progress {
+    min-width: 80px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-top: 2px;
+}
+
+.monitor-format-progress .system-monitor-progress-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+    background-color: #4ade80;
+}
+
+.monitor-format-progress .system-monitor-progress-fill.monitor-low {
+    background-color: #4ade80;
+}
+
+.monitor-format-progress .system-monitor-progress-fill.monitor-medium {
+    background-color: #fbbf24;
+}
+
+.monitor-format-progress .system-monitor-progress-fill.monitor-high {
+    background-color: #f87171;
+}
+
+.monitor-format-progress .system-monitor-progress-fill.monitor-critical {
+    background-color: #ef4444;
+}
+
+/* Color coding based on usage */
+.monitor-low {
+    color: #4ade80;
+}
+
+.monitor-medium {
+    color: #fbbf24;
+}
+
+.monitor-high {
+    color: #f87171;
+}
+
+.monitor-critical {
+    color: #ef4444;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* Compact mode */
+.monitor-format-compact {
+    padding: 4px 8px;
+}
+
+.monitor-format-compact:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.monitor-format-compact .system-monitor-item {
+    spacing: 2px;
+    padding: 0 2px;
+}
+
+.monitor-format-compact .system-monitor-label {
+    display: none;
+}
+
+.monitor-format-compact .system-monitor-value {
+    font-size: 10px;
+}
+
+/* Indicator container */
+.system-monitor-container {
+    spacing: 6px;
+}
+

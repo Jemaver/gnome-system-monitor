@@ -1,0 +1,12 @@
+{
+  "uuid": "system-monitor@local",
+  "name": "System Monitor",
+  "description": "Monitor CPU, RAM, Disk, and Network usage in the top panel",
+  "version": 1,
+  "shell-version": ["42", "43", "44", "45"],
+  "url": "",
+  "extension-id": "system-monitor",
+  "settings-schema": "org.gnome.shell.extensions.system-monitor",
+  "gettext-domain": "system-monitor"
+}
+

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="system-monitor">
+  <schema id="org.gnome.shell.extensions.system-monitor" path="/org/gnome/shell/extensions/system-monitor/">
+    <!-- Language -->
+    <key name="language" type="s">
+      <default>'en'</default>
+      <summary>Interface language</summary>
+      <description>Language for the extension interface (uk or en)</description>
+    </key>
+    
+    <!-- Display Format -->
+    <key name="display-format" type="s">
+      <default>'text'</default>
+      <summary>Display format</summary>
+      <description>Format for displaying system metrics: text, icons, progress, or compact</description>
+      <choices>
+        <choice value='text'/>
+        <choice value='icons'/>
+        <choice value='progress'/>
+        <choice value='compact'/>
+      </choices>
+    </key>
+    
+    <!-- Show CPU -->
+    <key name="show-cpu" type="b">
+      <default>true</default>
+      <summary>Show CPU usage</summary>
+      <description>Whether to display CPU usage</description>
+    </key>
+    
+    <!-- Show RAM -->
+    <key name="show-ram" type="b">
+      <default>true</default>
+      <summary>Show RAM usage</summary>
+      <description>Whether to display RAM usage</description>
+    </key>
+    
+    <!-- Show Disk -->
+    <key name="show-disk" type="b">
+      <default>true</default>
+      <summary>Show Disk usage</summary>
+      <description>Whether to display disk usage</description>
+    </key>
+    
+    <!-- Show Network Speed -->
+    <key name="show-network-speed" type="b">
+      <default>true</default>
+      <summary>Show network speed</summary>
+      <description>Whether to display network download/upload speed</description>
+    </key>
+    
+    <!-- Show Network Traffic -->
+    <key name="show-network-traffic" type="b">
+      <default>true</default>
+      <summary>Show network traffic</summary>
+      <description>Whether to display total network traffic</description>
+    </key>
+    
+    <!-- Update Interval -->
+    <key name="update-interval" type="i">
+      <default>1000</default>
+      <summary>Update interval</summary>
+      <description>Interval for updating system metrics in milliseconds</description>
+      <range min="500" max="10000"/>
+    </key>
+  </schema>
+</schemalist>
+

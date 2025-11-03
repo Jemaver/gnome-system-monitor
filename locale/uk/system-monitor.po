@@ -1,0 +1,124 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: system-monitor\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 12:00+0000\n"
+"PO-Revision-Date: 2024-01-01 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "System Monitor"
+msgstr "Монітор системи"
+
+msgid "CPU"
+msgstr "Процесор"
+
+msgid "RAM"
+msgstr "Пам'ять"
+
+msgid "Disk"
+msgstr "Диск"
+
+msgid "Net"
+msgstr "Мережа"
+
+msgid "Traffic"
+msgstr "Трафік"
+
+msgid "Language"
+msgstr "Мова"
+
+msgid "English"
+msgstr "Англійська"
+
+msgid "Ukrainian"
+msgstr "Українська"
+
+msgid "Display Format"
+msgstr "Формат відображення"
+
+msgid "Text"
+msgstr "Текст"
+
+msgid "Icons"
+msgstr "Іконки"
+
+msgid "Progress Bars"
+msgstr "Прогрес-бари"
+
+msgid "Compact"
+msgstr "Компактний"
+
+msgid "Visible Components"
+msgstr "Видимі компоненти"
+
+msgid "Show CPU"
+msgstr "Показати процесор"
+
+msgid "Show RAM"
+msgstr "Показати пам'ять"
+
+msgid "Show Disk"
+msgstr "Показати диск"
+
+msgid "Show Network Speed"
+msgstr "Показати швидкість мережі"
+
+msgid "Show Network Traffic"
+msgstr "Показати трафік мережі"
+
+msgid "Update Interval"
+msgstr "Інтервал оновлення"
+
+msgid "Interface language"
+msgstr "Мова інтерфейсу"
+
+msgid "Language for the extension interface (uk or en)"
+msgstr "Мова для інтерфейсу розширення (uk або en)"
+
+msgid "Display format"
+msgstr "Формат відображення"
+
+msgid "Format for displaying system metrics: text, icons, progress, or compact"
+msgstr "Формат відображення метрик системи: текст, іконки, прогрес-бари або компактний"
+
+msgid "Show CPU usage"
+msgstr "Показати використання процесора"
+
+msgid "Whether to display CPU usage"
+msgstr "Чи відображати використання процесора"
+
+msgid "Show RAM usage"
+msgstr "Показати використання пам'яті"
+
+msgid "Whether to display RAM usage"
+msgstr "Чи відображати використання пам'яті"
+
+msgid "Show Disk usage"
+msgstr "Показати використання диска"
+
+msgid "Whether to display disk usage"
+msgstr "Чи відображати використання диска"
+
+msgid "Show network speed"
+msgstr "Показати швидкість мережі"
+
+msgid "Whether to display network download/upload speed"
+msgstr "Чи відображати швидкість завантаження/відвантаження мережі"
+
+msgid "Show network traffic"
+msgstr "Показати трафік мережі"
+
+msgid "Whether to display total network traffic"
+msgstr "Чи відображати загальний трафік мережі"
+
+msgid "Update interval"
+msgstr "Інтервал оновлення"
+
+msgid "Interval for updating system metrics in milliseconds"
+msgstr "Інтервал оновлення метрик системи в мілісекундах"
+
