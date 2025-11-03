@@ -1,119 +1,167 @@
 # GNOME System Monitor Extension
 
-Розширення для GNOME Shell, яке відображає використання системних ресурсів (CPU, RAM, Disk, Network) у верхній панелі.
+A GNOME Shell extension that displays system resource usage (CPU, RAM, Disk, Network) in the top panel.
 
-## Функціональність
+## Features
 
-- **Моніторинг CPU**: відсоток використання процесора
-- **Моніторинг RAM**: відсоток та використана/загальна пам'ять
-- **Моніторинг Disk**: відсоток заповнення диска
-- **Моніторинг Network**: 
-  - Швидкість завантаження/відвантаження
-  - Загальний трафік
+- **CPU Monitoring**: processor usage percentage
+- **RAM Monitoring**: percentage and used/total memory
+- **Disk Monitoring**: disk usage percentage
+- **Network Monitoring**: 
+  - Download/upload speed
+  - Total traffic
 
-## Налаштування
+## Settings
 
-- **Мова інтерфейсу**: Українська / Англійська
-- **Формат відображення**: Текст, Іконки, Прогрес-бари, Компактний
-- **Видимість компонентів**: можливість увімкнути/вимкнути кожен компонент
-- **Інтервал оновлення**: налаштування частоти оновлення даних
+- **Interface Language**: Ukrainian / English
+- **Display Format**: Text, Icons, Progress Bars, Compact
+- **Component Visibility**: enable/disable each component
+- **Update Interval**: configure data refresh frequency
 
-## Встановлення
+## Installation
 
-### Автоматичне встановлення
+### Manual Installation
 
-1. Скопіюйте папку розширення в `~/.local/share/gnome-shell/extensions/`:
+1. Copy the extension folder to `~/.local/share/gnome-shell/extensions/`:
 ```bash
 cp -r gnome-system-monitor ~/.local/share/gnome-shell/extensions/system-monitor@local
 ```
 
-2. Встановіть схему GSettings:
+2. Compile GSettings schema:
 ```bash
 cd ~/.local/share/gnome-shell/extensions/system-monitor@local
 glib-compile-schemas schemas/
 ```
 
-3. Компілюйте переклади (потрібен пакет `gettext`):
+3. Compile translations (requires `gettext` package):
 ```bash
 sudo apt install gettext
 msgfmt locale/uk/system-monitor.po -o locale/uk/LC_MESSAGES/system-monitor.mo
 msgfmt locale/en/system-monitor.po -o locale/en/LC_MESSAGES/system-monitor.mo
 ```
 
-4. Перезавантажте GNOME Shell (Alt+F2, введіть `r` та натисніть Enter) або перезалогіньтесь
+Or use the provided script:
+```bash
+./compile-translations.sh
+```
 
-5. Увімкніть розширення через GNOME Extensions або `gnome-extensions-app`
+4. Reload GNOME Shell (Alt+F2, type `r` and press Enter) or log out and back in
 
-### Встановлення через Git
+5. Enable the extension through GNOME Extensions app or `gnome-extensions-app`
+
+### Installation via Git
 
 ```bash
 cd ~/.local/share/gnome-shell/extensions/
-git clone <repository-url> system-monitor@local
+git clone https://github.com/Jemaver/gnome-system-monitor.git system-monitor@local
 cd system-monitor@local
 glib-compile-schemas schemas/
-# Компілюйте переклади як описано вище
+./compile-translations.sh
 ```
 
-## Автозавантаження
+## Auto-loading
 
-Розширення автоматично завантажується при старті системи, якщо воно увімкнено в GNOME Extensions.
+The extension automatically loads on system startup if it's enabled in GNOME Extensions.
 
-## Налаштування
+## Configuration
 
-Налаштування доступні через GNOME Extensions:
-1. Відкрийте GNOME Extensions
-2. Знайдіть "System Monitor"
-3. Натисніть на іконку налаштувань
+Settings are available through GNOME Extensions:
+1. Open GNOME Extensions
+2. Find "System Monitor"
+3. Click the settings icon
 
-Або через командний рядок з використанням `gsettings`:
+Or via command line using `gsettings`:
 ```bash
-# Зміна мови
-gsettings set org.gnome.shell.extensions.system-monitor language 'uk'
+# Change language
+gsettings set org.gnome.shell.extensions.system-monitor language 'en'
 
-# Зміна формату
+# Change display format
 gsettings set org.gnome.shell.extensions.system-monitor display-format 'icons'
 
-# Увімкнути/вимкнути компоненти
+# Enable/disable components
 gsettings set org.gnome.shell.extensions.system-monitor show-cpu true
+gsettings set org.gnome.shell.extensions.system-monitor show-ram true
+gsettings set org.gnome.shell.extensions.system-monitor show-disk true
+gsettings set org.gnome.shell.extensions.system-monitor show-network-speed true
+gsettings set org.gnome.shell.extensions.system-monitor show-network-traffic true
+
+# Set update interval (in milliseconds)
+gsettings set org.gnome.shell.extensions.system-monitor update-interval 1000
 ```
 
-## Вимоги
+## Requirements
 
 - GNOME Shell 42+ (Ubuntu 22.04+)
 - GJS (GNOME JavaScript)
 
-## Розробка
+## Why JavaScript instead of Python?
 
-### Структура проекту
+GNOME Shell extensions are built using **GJS (GNOME JavaScript)**, which is the official and recommended way to extend GNOME Shell. Here's why:
+
+- **Native Integration**: GJS provides direct access to GNOME Shell APIs and GTK/GObject libraries without process overhead
+- **Performance**: Extensions run directly in the GNOME Shell process, ensuring real-time updates and minimal resource usage
+- **API Access**: Direct access to GNOME Shell's internal APIs (St, Main, PanelMenu, etc.) without IPC overhead
+- **Standard Practice**: All official GNOME extensions use JavaScript/GJS
+- **Hot Reload**: Easier development workflow with Alt+F2 → `r` to reload extensions
+
+Python would require a separate process, inter-process communication (IPC), and would be significantly slower for UI updates.
+
+## Development
+
+### Project Structure
 
 ```
 gnome-system-monitor/
-├── extension.js          # Основний код розширення
-├── prefs.js              # Налаштування
-├── stylesheet.css        # Стилі
-├── metadata.json         # Метадані розширення
-├── schemas/              # GSettings схема
-└── locale/               # Переклади
+├── extension.js          # Main extension code
+├── prefs.js              # Preferences UI
+├── stylesheet.css        # Styles
+├── metadata.json         # Extension metadata
+├── schemas/              # GSettings schema
+└── locale/               # Translations
 ```
 
-### Відлагодження
+### Debugging
 
-Для перегляду логів помилок:
+To view error logs:
 ```bash
 journalctl -f | grep -i "system-monitor"
 ```
 
-Або в GNOME Shell:
+Or in GNOME Shell:
 ```bash
-# Натисніть Alt+F2 та введіть:
+# Press Alt+F2 and type:
 lg
 ```
 
-## Ліцензія
+### Building from Source
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Jemaver/gnome-system-monitor.git
+cd gnome-system-monitor
+```
+
+2. Compile schemas and translations:
+```bash
+glib-compile-schemas schemas/
+./compile-translations.sh
+```
+
+3. Copy to extensions folder:
+```bash
+cp -r . ~/.local/share/gnome-shell/extensions/system-monitor@local
+```
+
+4. Reload GNOME Shell
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
 
 MIT License
 
-## Автор
+## Author
 
-Розроблено для Ubuntu/GNOME
-
+Developed for Ubuntu/GNOME
