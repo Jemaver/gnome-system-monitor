@@ -62,8 +62,12 @@ class SystemMonitor extends PanelMenu.Button {
     }
     
     _updateUI() {
-        // Clear existing indicators
+        // Clear existing indicators and remove format classes
         this.container.remove_all_children();
+        this.container.remove_style_class_name('monitor-format-text');
+        this.container.remove_style_class_name('monitor-format-icons');
+        this.container.remove_style_class_name('monitor-format-progress');
+        this.container.remove_style_class_name('monitor-format-compact');
         
         const format = settings.get_string('display-format');
         const showCpu = settings.get_boolean('show-cpu');
